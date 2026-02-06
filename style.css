@@ -1,0 +1,236 @@
+*:not(body) {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+}
+
+@font-face {
+  font-family: 'OrbitronBold';
+  src: url('./assets/font/Orbitron/static/Orbitron-Black.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Univox';
+  src: url('./assets/font/Univox.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+
+body.noScroll, html:has(body.noScroll) {
+    overflow: hidden;
+    height: 100vh;
+}
+
+#landingTitle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#landingTitle h1 {
+    font-family: 'Univox';
+    color: #0D160B; /* #151919 */
+}
+ 
+
+/* vibecoded with Claude */
+
+@keyframes colorChange {
+  0% {
+    color: #cd3e00;/*#05668D #1456B8 */ 
+  }
+  50% {
+    color: none;
+  }
+  100% {
+    color: #F5F5F5; 
+  }
+}
+
+#enter {
+    text-decoration: none;
+    animation: colorChange 1s infinite alternate;
+    font-family: 'OrbitronBold';
+}
+
+
+.floating-text {
+    position: fixed;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    color: #0D160B; /* rgba(20, 86, 184, 1) */
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity 0.5s ease;
+    white-space: nowrap;
+    letter-spacing: 2px;
+    text-shadow: 0 0 5px rgba(20, 86, 184, 0.2);
+}
+
+.cursor-glow {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(20, 86, 184, 0) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+}
+
+.cursor-trail {
+    position: fixed;
+    font-size: 16px;
+    font-family: 'Courier New', monospace;
+    color: rgba(205, 62, 0, 0.8);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.5s ease;
+}
+
+/* Coded on my own, get help from Claude when necessary */
+
+body {
+    cursor: none;
+    padding: clamp(10px, 2vw, 20px) !important;
+    background-color: #F5F5F5;
+    overflow-x: hidden;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+a, button, input, textarea {
+    cursor: none !important;
+}
+
+.custom-cursor {
+    position: fixed;
+    width: 5px;
+    height: 5px;
+    border: 1px solid rgba(205, 62, 0, 1); /* rgba(20, 86, 184, 0.8) */
+    border-radius: 100%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 10vh;
+    font-family: 'Orbitron';
+}
+
+.nav div {
+    width: 30%;
+}
+
+.nav nav {
+    width: 50%;
+    text-decoration: none;
+    color: black;
+    display: flex;
+}
+
+.nav a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.5s ease;
+}
+
+.nav a:hover {
+    color: #cd3e00;
+}
+
+nav a:nth-child(1) { margin-right: 24%;}
+nav a:nth-child(2) { margin-right: none;}
+nav a:nth-child(3) { margin-left: auto;}
+
+.heroSection {
+    height: 90vh;
+}
+
+.hero {
+    height: 70%;
+    position: absolute;
+    display: border-box;
+    top: 60%;
+    justify-self: center;
+    font-size: clamp(40px, calc((56vw - 40px) * 0.1), 200px);
+    font-family: 'Univox';
+}
+
+.description {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 30%;
+    position: absolute;
+    bottom: 20px;   
+    width: 100%;
+}
+
+.description ul {
+    list-style: none;
+    font-family: 'Orbitron';
+    font-size: clamp(12px, 2rem, 10px);
+}
+
+.description ul:nth-child(1) { margin-right: 10%;}
+.description ul:nth-child(2) { margin-left: 24%;}
+.description ul:nth-child(3) { margin-right: 40px; text-align: right;} 
+
+
+.selectedProjectSection {
+    display: flex;
+    flex-direction: column;
+    margin-top: 60vh;
+    gap: 20px;
+}
+
+.selectedProject {
+    width: 100%;
+    height: 100px;
+    margin: 20px unset;
+    background-color: #878787;
+}
+
+
+
+footer {
+    margin-top: 60vh;
+}
+
+
+.mobileBreak {
+    display: none;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .description {
+        gap: 20px;
+    }
+
+    .mobileBreak {
+        display: inline;
+    }
+}
