@@ -132,6 +132,7 @@ function startMatrixStreams() {
 
 let mouseX = 0;
 let mouseY = 0;
+let isOverMarquee = false;
 
 document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
@@ -149,7 +150,9 @@ document.addEventListener('mousemove', (e) => {
         customCursor.style.top = mouseY + 'px';
     }
 
-    createCursorTrail(mouseX, mouseY);
+    if (!isOverMarquee) {
+        createCursorTrail(mouseX, mouseY);
+    }
 });
 
 let lastTrailTime = 0;
@@ -190,4 +193,23 @@ window.addEventListener('load', () => {
     if (document.getElementById('landingTitle')) {
         startMatrixStreams();
     }
+
+    // Back to top
+    document.querySelector('.back-top')?.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Marquee hover cursor change
+    document.querySelectorAll('.marquee').forEach(marquee => {
+        marquee.addEventListener('mouseenter', () => {
+            isOverMarquee = true;
+            customCursor.classList.add('marquee-hover');
+            customCursor.textContent = 'Reach out';
+        });
+        marquee.addEventListener('mouseleave', () => {
+            isOverMarquee = false;
+            customCursor.classList.remove('marquee-hover');
+            customCursor.textContent = '';
+        });
+    });
 });

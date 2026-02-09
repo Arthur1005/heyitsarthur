@@ -1,10 +1,7 @@
-*:not(body) {
+*, *::before, *::after {
     margin: 0;
     padding: 0;
-}
-
-body {
-    margin: 0;
+    box-sizing: border-box;
 }
 
 @font-face {
@@ -74,7 +71,7 @@ body.noScroll, html:has(body.noScroll) {
     z-index: 1;
     transition: opacity 0.5s ease;
     white-space: nowrap;
-    letter-spacing: 2px;
+    letter-spacing: 0.12em;;
     text-shadow: 0 0 5px rgba(20, 86, 184, 0.2);
 }
 
@@ -111,6 +108,7 @@ body {
 
 html {
     overflow-x: hidden;
+    max-width: 100%;
 }
 
 a, button, input, textarea {
@@ -125,7 +123,25 @@ a, button, input, textarea {
     border-radius: 100%;
     pointer-events: none;
     transform: translate(-50%, -50%);
-    transition: transform 0.1s ease;
+    transition: width 0.3s ease, height 0.3s ease, border 0.3s ease, background-color 0.3s ease;
+}
+
+.custom-cursor.marquee-hover {
+    width: auto;
+    height: auto;
+    padding: 8px 16px;
+    border: 1px solid rgba(205, 62, 0, 1);
+    border-radius: 0;
+    background-color: #f5f5f5;
+    font-family: 'Orbitron';
+    font-size: 12px;
+    color: rgba(205, 62, 0, 1);
+    white-space: nowrap;
+    letter-spacing: 0.12em;
+}
+
+#menu {
+  display: none;
 }
 
 .nav {
@@ -163,6 +179,9 @@ nav a:nth-child(3) { margin-left: auto;}
 
 .heroSection {
     height: 90vh;
+    margin-bottom: 20%;
+    position: relative;
+    overflow: hidden;
 }
 
 .hero {
@@ -182,8 +201,11 @@ nav a:nth-child(3) { margin-left: auto;}
     align-items: flex-end;
     height: 30%;
     position: absolute;
-    bottom: 20px;   
+    bottom: 20px;
+    left: 0;
+    right: 0;
     width: 100%;
+    max-width: 100%;
 }
 
 .description ul {
@@ -197,40 +219,375 @@ nav a:nth-child(3) { margin-left: auto;}
 .description ul:nth-child(3) { margin-right: 40px; text-align: right;} 
 
 
-.selectedProjectSection {
-    display: flex;
-    flex-direction: column;
-    margin-top: 60vh;
-    gap: 20px;
-}
-
-.selectedProject {
-    width: 100%;
-    height: 100px;
-    margin: 20px unset;
-    background-color: #878787;
-}
-
-
-
-footer {
-    margin-top: 60vh;
-}
-
 
 .mobileBreak {
     display: none;
 }
 
+.aboutSection {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+    font-family: 'Orbitron';
+    margin-bottom: 20%;
+    padding: 0 clamp(10px, 3vw, 40px);
+}
+
+.HomeSubTitle {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    font-family: 'Orbitron';
+    margin-bottom: 10%;
+}
+
+.HomeSubTitle p:last-child {
+    margin-right: calc(-1 * clamp(10px, 3vw, 40px));
+}
+
+.littleAboutMeNameSecion {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    font-family: 'Orbitron';
+}
+
+.littleAboutMeIam {
+    letter-spacing: 0.12em;
+    line-height: 30px;
+}
+.littleAboutMeName {
+    font-family: 'Univox';
+    text-align: right;
+    font-size: 220%;
+    margin-bottom: 2%;
+}
+.littleAboutMeContent {
+    max-width: clamp(60%, 60vw, 60%);
+    letter-spacing: 0.12em;
+    line-height: 30px;
+    font-size: clamp(14px, 2.5vw, 20px);
+}
+
+.aboutMeHover {
+    color: #cd3e00;
+}
+
+
+.selectedProjectSection {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 clamp(10px, 3vw, 40px);
+    margin-bottom: 10%;
+}
+
+
+.selectedProjectHeader {
+  position: relative;
+  padding: 40px 60px;
+  color: #1c2b22;
+  font-family: 'Orbitron';
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.role {
+    margin-top: auto;
+    margin-right: 10%;
+}
+
+
+.selectedProjectHeader::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;     /* how wide the corner goes */
+  height: 80px;    /* how tall the corner goes */
+
+  border-bottom: 2px solid #1c2b22;
+  border-right: 2px solid #1c2b22;
+  border-bottom-right-radius: 40px; /* roundness of corner */
+  pointer-events: none;
+}
+
+.viewAll {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.viewAllBtn {
+    width: fit-content;
+    display: inline-block;
+    padding: 10px 20px;
+    background: none;
+    border: none;
+    font-family: 'Orbitron';
+    margin-left: auto;
+    color: #0D160B;
+    text-decoration-line: unset;
+    transition: color 0.5s ease;
+}
+
+ 
+
+
+.viewAllBtn:hover{
+  color: #cd3e00;
+}
+
+.arrowRight {
+  position: relative;
+  width: 5%;   
+  height: 2px;  
+  background: black;
+}
+
+.arrowRight::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+
+
+.reachOutSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  margin-bottom: 10%;
+}
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: 'Oribtron';
+}
+
+.marquee span {
+  display: inline-block;
+  font-family: 'Orbitron';
+  font-size: clamp(40px, 8vw, 100px);
+  font-weight: bold;
+  letter-spacing: 0.12em;
+  color: #1c2b22;
+  animation: marqueeScroll 24s linear infinite;
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-reverse span {
+  animation: marqueeScrollReverse 24s linear infinite;
+  transition: color 0.5s ease;
+}
+
+.marquee-reverse:hover span {
+  color: #cd3e00;
+}
+
+@keyframes marqueeScrollReverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.back-top {
+  position: relative;
+  background: transparent;
+  border: none;
+  padding: 20px 14px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20%;
+  transition: background-color 0.3s ease;
+}
+
+.back-top span {
+  position: relative;
+  z-index: 2;
+  font-size: 16px;
+  color: #1c2b22;
+  font-family: 'Orbitron';
+  transition: color 0.3s ease;
+}
+
+.back-top:hover path {
+  fill: #1c2b22;
+  stroke: #1c2b22;
+}
+
+.back-top:hover span {
+  color: #f5f5f5;
+}
+
+/* SVG OUTLINE */
+.back-top svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.back-top path {
+  fill: none;
+  stroke: #111;
+  stroke-width: 4px;
+  transition: stroke 0.3s ease, fill 0.3s ease;
+}
+
+
+
+footer {
+    font-family: 'Orbitron';
+    font-size: clamp(12px, 2rem, 10px);
+}
+
+footer a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.5s ease;
+}
+
+
+.footer1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.footer11 {
+    width: 40%;
+}
+
+.footer11 a{
+    margin-right: 10%;
+}
+
+.footer12 {
+    display: flex;
+    flex-direction: row;
+    justify-items: right;
+}
+
+.footer12 a{
+    margin-left: 20px;
+}
+
+.footer2 {
+    font-family: 'Univox';
+    font-size: clamp(40px, calc((56vw - 40px) * 0.1), 200px);
+    color: #E9E9E9;
+    overflow: hidden;
+}
+
+.footer3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.footer3 a:nth-child(2) { flex: 0 0 40%;}
+
+
 
 
 
 @media (max-width: 768px) {
-    .description {
-        gap: 20px;
+  
+  body {
+    cursor: none;
+    padding: clamp(10px, 2vw, 20px) !important;
+    background-color: #F5F5F5;
+    overflow-x: hidden;
+}
+
+  #menu {
+    display: block;
+    width: 24px;
+    margin-bottom: auto;
+  }
+
+  
+
+  .logoSection {
+    display: flex;
+    flex-direction: row;
+    max-height: 24px;
+    min-width: 80vw;
+    justify-content: space-between;
+  }
+
+  .description ul:nth-child(3) { margin-right: 0px; text-align: right;} 
+
+ 
+  nav a{
+    display: none;
+    width: 0;
+  }
+
+   nav {
+    display: flex;
+    flex-direction: row;
+  };
+
+  .description {
+    gap: 20px;
+  }
+
+  .mobileBreak {
+    display: inline;
+  }
+
+  .HomeSubTitle {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    font-family: 'Orbitron';
+    margin-bottom: 30%;
+}
+
+  .littleAboutMeNameSecion {
+    flex-direction: column;
+  }
+
+  .littleAboutMeName{
+    font-size: calc((100vw - clamp(10px, 2vw, 20px) * 2) * 0.052);
+    text-align: left;
+    margin: 10% 0;
+  }
+
+  .littleAboutMeContent {
+    max-width: 100%;
     }
 
-    .mobileBreak {
-        display: inline;
-    }
 }

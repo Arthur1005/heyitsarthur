@@ -9,14 +9,17 @@
 </head>
 <body>
     <header class="nav">
-        <div>
-            <img src="./img/logo.png" width="24px" alt="Logo">
+        <div class="logoSection">
+            <img src="./assets/img/logo.png" width="24px" alt="Logo">
         </div>
+        
         <nav>
-            <a href="">about</a>
-            <a href="">projects</a>
-            <a href="">reach out</a>
+            <a href="/about.html">about</a>
+            <a href="/projects.html">projects</a>
+            <a href="/reachout.html">reach out</a>
         </nav>
+        <img id="menu" src="./assets/img/menu.svg">
+        
     </header>
     <section class="heroSection">
         <div class="hero">
@@ -39,19 +42,96 @@
             </ul>
         </div>
     </section>
-    <section class="selectedProjectSection">
-        <div class="selectedProject">
-            project
+    <section class="aboutSection">
+        <div class="HomeSubTitle">
+            <p>little <br> about me</p>
+            <p>///</p>
         </div>
-        <div class="selectedProject">
-            project
-        </div>
-        <div class="selectedProject">
-            project
+        <div>
+            <div class="littleAboutMeNameSecion">
+                <p class="littleAboutMeIam">Hey! This is</p>
+                <p class="littleAboutMeName">ARTHUR<br>LIN</p>
+            </div>
+            
+            <p class="littleAboutMeContent">a multidisciplinary <span class="aboutMeHover">UI/UX designer</span> 
+                passionate about creating digital 
+                experiences that combine usability 
+                with compelling <span class="aboutMeHover">visual storytelling</span>. 
+                I design websites and mobile apps, 
+                from sketches and prototypes to 
+                information architecture, visual 
+                systems, and interactive components.</p>
         </div>
     </section>
+    <section class="selectedProjectSection">
+        <div class="HomeSubTitle">
+            <p>Highlighted <br> project</p>
+            <p>///</p>
+        </div>
+
+        <div class="selectedProjectHeader">
+            <h1>Circula</h1>
+            <p class="role">role</p>
+        </div>
+
+        <div class="selectedProjectHeader">
+            <h1>Pacman</h1>
+            <p class="role">role</p>
+        </div>
+        
+        <div class="selectedProjectHeader">
+            <h1>Lunar</h1>
+            <p class="role">role</p>
+        </div>
+
+        <div class="viewAll">
+            <a class="viewAllBtn" href="/projects.html">View all projects</a>
+            <div class="arrowRight"></div>
+        </div>
+    </section>
+
+    <section class="reachOutSection">
+        <div class="marquee">
+            <span>/ EXPLORE / EXPERIMENT / EXPEND&nbsp;&nbsp;&nbsp;/ EXPLORE / EXPERIMENT / EXPEND&nbsp;&nbsp;&nbsp;/ EXPLORE / EXPERIMENT / EXPEND&nbsp;&nbsp;&nbsp;/ EXPLORE / EXPERIMENT / EXPEND&nbsp;&nbsp;&nbsp;</span>
+        </div>
+        <div class="marquee marquee-reverse">
+            <span>REACH OUT&nbsp;&nbsp;&nbsp;REACH OUT&nbsp;&nbsp;&nbsp;REACH OUT&nbsp;&nbsp;&nbsp;REACH OUT&nbsp;&nbsp;&nbsp;REACH OUT&nbsp;&nbsp;&nbsp;REACH OUT&nbsp;&nbsp;&nbsp;REACH OUT&nbsp;&nbsp;&nbsp;REACH OUT&nbsp;&nbsp;&nbsp;REACH OUT&nbsp;&nbsp;&nbsp;REACH OUT&nbsp;&nbsp;&nbsp;REACH OUT&nbsp;&nbsp;&nbsp;REACH OUT&nbsp;&nbsp;&nbsp;</span>
+        </div>
+        <div class="marquee">
+            <span>/ EXPEND / EXPLORE / EXPERIMENT&nbsp;&nbsp;&nbsp;/ EXPEND / EXPLORE / EXPERIMENT&nbsp;&nbsp;&nbsp;/ EXPEND / EXPLORE / EXPERIMENT&nbsp;&nbsp;&nbsp;/ EXPEND / EXPLORE / EXPERIMENT&nbsp;&nbsp;&nbsp;</span>
+        </div>
+
+
+    <button class="back-top">
+            <svg viewBox="0 0 200 80" preserveAspectRatio="none">
+                <path d="M10 70 L10 30 L100 18 L190 30 L190 70 Z" />
+            </svg>
+            <span>Back to top</span>
+    </button>
+    
+    </section>
+
     <footer>
-        things
+        <div class="footer1">
+            <div class="footer11">
+                <a href="/about.html">about</a>
+                <a href="/projects.html">project</a>
+                <a href="/reachout.html">reach out</a>
+            </div>
+            <div class="footer12">
+                <a href="">Linkedin</a>
+                <a href="">Instagram</a>
+                <a href="">Facebook</a>
+            </div>
+        </div>
+        <div class="footer2">
+            <p>ART<br class="mobileBreak">HUR</p>
+        </div>
+        <div class="footer3">
+            <a href="">privacy policy</a>
+            <a href="">terms of service</a>
+            <p>© 2026 Arthur Lin</p>
+        </div>
     </footer>
     <script src="style.js"></script>
 </body>
