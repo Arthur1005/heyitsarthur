@@ -199,6 +199,21 @@ window.addEventListener('load', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
+    // Project enlarge on scroll to center
+    const projectObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            } else {
+                entry.target.classList.remove('active');
+            }
+        });
+    }, { rootMargin: '-40% 0px -40% 0px' });
+
+    document.querySelectorAll('.selectedProjectHeader').forEach(project => {
+        projectObserver.observe(project);
+    });
+
     // Marquee hover cursor change
     document.querySelectorAll('.marquee').forEach(marquee => {
         marquee.addEventListener('mouseenter', () => {

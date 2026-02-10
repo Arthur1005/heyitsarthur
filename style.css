@@ -288,13 +288,20 @@ nav a:nth-child(3) { margin-left: auto;}
 
 .selectedProjectHeader {
   position: relative;
-  padding: 40px 60px;
+  padding: clamp(30px, 3vw, 40px) clamp(0px, 3vw, 60px);
   color: #1c2b22;
   font-family: 'Orbitron';
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  transform: scale(0.95);
+  transition: transform 0.4s ease;
 }
+
+.selectedProjectHeader.active {
+  transform: scale(1);
+}
+
 
 .role {
     margin-top: auto;
@@ -335,9 +342,6 @@ nav a:nth-child(3) { margin-left: auto;}
     text-decoration-line: unset;
     transition: color 0.5s ease;
 }
-
- 
-
 
 .viewAllBtn:hover{
   color: #cd3e00;
@@ -536,8 +540,6 @@ footer a {
     margin-bottom: auto;
   }
 
-  
-
   .logoSection {
     display: flex;
     flex-direction: row;
@@ -559,21 +561,16 @@ footer a {
     flex-direction: row;
   };
 
-  .description {
-    gap: 20px;
-  }
+  .heroSection {
+    margin-bottom: 200px;
+}
 
   .mobileBreak {
     display: inline;
   }
 
   .HomeSubTitle {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-    font-family: 'Orbitron';
-    margin-bottom: 30%;
+    margin-bottom: 20%;
 }
 
   .littleAboutMeNameSecion {
@@ -589,5 +586,10 @@ footer a {
   .littleAboutMeContent {
     max-width: 100%;
     }
+
+
+  .selectedProjectHeader h1 {
+    font-size: clamp(20px, 2.5vw, 30px);
+  }
 
 }
